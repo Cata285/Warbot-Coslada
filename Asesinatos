@@ -1,0 +1,96 @@
+package asesinato.es;
+
+/**
+ * 
+ * @author Cata285
+ */
+
+import java.util.Random;
+import java.util.ArrayList;
+import java.util.List;
+ 
+
+
+
+public class Asesinatos {
+	
+	
+	public static void main(String[] args) throws InterruptedException{
+		
+		String[] asesinos = {"Juli","Lucas","Barbero","Morato","Nao","Dani","Marco","El tonto de turno","Miha","Xamara","Almudena","Cembranos","Alex","JC","Mario","Sinovas","Conley","Meji","Conde","Canelada","La Checa","Jose Luis el gigante","Julián el macabro","Jorge rubia","La Predator","Aroa","Sara","Mora","Picazo","Fani","Nere"};
+		List<String> asesinosList = new ArrayList<String>();
+		String[] formas = {"con ácido","con asfixia erótica","con una motosierra","con un pica hielos en el ojo",", le atropelló con un tractor","decapitándole al estilo isis","con una bomba lapa",", le puso TNT en el culo","al ganarle en duelo al amanecer",", le enterró vivo","con un supositorio envenenado",", le lapidó",", le crucificó",", le fusiló", ", le cortó la cabeza con la gillotina","en el potro",", le quemó mientras aún vivía","con el garrote vil",", le introdujo aire en las venas",", le despeñó","con polonio en el sombrero",", le electrocutó","con una paliza gitana","con un dron","con 80 puñaladas","con 100 tiros en sus partes íntimas",", le metió en una cámara de gas",", le ahorcó en medio de una plaza y le desnudó",", le cortó los frenos",", le despellejó",", le arrastró con caballos durante horas","con un condón envenenado",", le ahogó con una bolsa"};
+		List<String> formasList = new ArrayList<String>();
+
+		for(String asesino : asesinos){
+			
+			asesinosList.add(asesino);
+		}
+		
+		for(String forma : formas){
+			
+			formasList.add(forma);
+		}
+		
+	
+		Asesinatos random = new Asesinatos();
+		
+		Asesinatos random1 = new Asesinatos();
+		
+		Asesinatos jj = new Asesinatos();
+		
+		
+        for(String i : asesinos){
+        	
+        	Thread.sleep(4000);
+        	
+        	String x = random.getRandomElement(asesinosList);
+        	
+        	String eliminado = random1.getRandomElement(asesinosList);
+        	
+        	String j = jj.getRandomElement1(formasList);
+        	
+
+       
+        while (asesinosList.size() != 1 && x == eliminado){
+        	
+        	x = random.getRandomElement(asesinosList);
+        	
+        } 
+        
+        if (asesinosList.size() != 1 && x != eliminado){
+        	
+    	   		  System.out.println(x + " "+ "ha asesinado a" +" "+ eliminado + " "+ j);
+        
+    	   		  		asesinosList.remove(eliminado);
+    	   		  		
+    	   		  		formasList.remove(j);
+	    
+	    	
+	    } else if (asesinosList.size() == 1){
+		
+        	System.out.println("Ha ganado:" +" "+ x);
+		
+				}
+        	
+        	}
+        
+		}
+	
+
+	public String getRandomElement(List<String> asesinosList){ 
+	        
+		    Random rand = new Random(); 
+	        
+	        return asesinosList.get(rand.nextInt(asesinosList.size())); 
+	        
+	    	} 
+	
+	public String getRandomElement1(List<String> formasList){ 
+        
+	    Random rand = new Random(); 
+        
+        return formasList.get(rand.nextInt(formasList.size())); 
+    		
+	  		} 
+		}
